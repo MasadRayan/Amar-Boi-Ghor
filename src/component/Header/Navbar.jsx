@@ -7,8 +7,11 @@ const Navbar = () => {
         <NavLink to={'/'}>
             <li className='m-2'><button className='btn btn-outline btn-success border-none text-black'>Home</button></li>
         </NavLink>
-        <NavLink to={'/about'}>
+        {/* <NavLink to={'/about'}>
             <li className='m-2'><button className='btn btn-outline btn-success border-none text-black'>About</button></li>
+        </NavLink> */}
+        <NavLink to={'/listedBook'}>
+            <li className='m-2'><button className='btn btn-outline btn-success border-none text-black'>Listed Book</button></li>
         </NavLink>
     </>
     return (

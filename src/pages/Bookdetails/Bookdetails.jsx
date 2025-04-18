@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link, useLoaderData, useParams } from 'react-router';
 import { addToDB } from '../../utilities/addToDB';
+import { addToWishlist } from '../../utilities/addToWishlist';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
 
 const Bookdetails = () => {
 
@@ -13,7 +18,20 @@ const Bookdetails = () => {
 
 
     const hanfleMarkAsRead = id => {
-        addToDB(id);
+        MySwal.fire({
+            title: "Good job!",
+            text: "The book is added in list of readed books",
+            icon: "success"
+          });
+    }
+
+    const handleWishlistBooks = (id) => {
+        MySwal.fire({
+            title: "Good job!",
+            text: "The book is added in Wishlist",
+            icon: "success"
+          })
+        addToWishlist(id);
     }
 
 
@@ -52,9 +70,9 @@ const Bookdetails = () => {
                     <p className='font-bold mb-4'><span className='text-[#131313B3]'> Rating:</span> {rating}</p>
                     <div className='flex items-center gap-4'>
                         <button onClick={() => hanfleMarkAsRead(id)} className="btn">Mark as Read</button>
-                        <button className="btn btn-accent">Add to Wishlist</button>
+                        <button onClick={() => handleWishlistBooks(id)} className="btn btn-accent">Add to Wishlist</button>
                         <Link to={'/'}>
-                        <button className="btn btn-soft btn-info">Back</button>
+                            <button className="btn btn-soft btn-info">Back</button>
                         </Link>
 
                     </div>

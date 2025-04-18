@@ -1,5 +1,5 @@
-const getStoredBook = () => {
-    const storedBookSTR = localStorage.getItem("readList");
+const getWishedBook = () => {
+    const storedBookSTR = localStorage.getItem("wishList");
 
     if (storedBookSTR) {
         const storedBookArray = JSON.parse(storedBookSTR);
@@ -10,16 +10,16 @@ const getStoredBook = () => {
     }
 }
 
-const addToDB = (id) => {
-    const storedBookData = getStoredBook();
+const addToWishlist = (id) => {
+    const storedBookData = getWishedBook();
     if (storedBookData.includes(id)) {
         alert("Can't add same Book Twice");
     }
     else {
         storedBookData.push(id);
         const data = JSON.stringify(storedBookData);
-        localStorage.setItem("readList", data);
+        localStorage.setItem("wishList", data);
     }
 }
 
-export {addToDB, getStoredBook};
+export {addToWishlist, getWishedBook};
