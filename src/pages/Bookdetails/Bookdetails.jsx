@@ -23,6 +23,7 @@ const Bookdetails = () => {
             text: "The book is added in list of readed books",
             icon: "success"
           });
+        addToDB(id);
     }
 
     const handleWishlistBooks = (id) => {
